@@ -1,0 +1,56 @@
+<div class="main-login-container">
+  <div class="loginContentUp">
+    <div class="loginContent">
+      <div class="left-section">
+        <div class="branding">
+          <img src="/Logo/Logo.png" alt="BharatDesk logo" />
+          <!-- <h2>Create your business account</h2> -->
+        </div>
+      </div>
+
+      <div class="right-section">
+        <div class="form-card">
+          <h1><span class="highlight">Sign up:</span> Account Setup</h1>
+
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="business-name">Business Name</label>
+              <input id="business-name" type="text" formControlName="businessName" placeholder="Enter business name" />
+            </div>
+
+            <div class="form-group">
+              <label for="business-type">Business Type</label>
+              <select id="business-type" formControlName="businessType">
+                <option value="">Select business type</option>
+                <option value="retail">Retail</option>
+                <option value="service">Service</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" type="tel" formControlName="phone" placeholder="Enter phone number" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" formControlName="email" placeholder="Enter email address" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input id="password" type="password" formControlName="password" placeholder="Create a password" autocomplete="new-password" />
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input id="confirm-password" type="password" formControlName="confirmPassword" placeholder="Confirm your password" autocomplete="new-password" />
+            </div>
+
+            <button type="submit" [disabled]="signupForm.invalid">Create Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

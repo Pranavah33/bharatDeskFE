@@ -1,0 +1,23 @@
+<div class="main-login-container">
+  <div class="loginContentUp">
+    <div class="loginContent">
+      <div class="loginContentLeft">
+        <div class="loginImg">
+          <img src="/Logo/Logo.png" alt="Login illustration" />
+        </div>
+      </div>
+      <div class="loginContentRight">
+        @if (showLoginButtons()) {
+          <div class="loginButtons">
+            <button type="button" (click)="openLoginForm('admin')">Admin Login</button>
+            <button type="button" (click)="openLoginForm('customer')">Client Login</button>
+          </div>
+        }
+        <router-outlet
+          (activate)="showLoginForm()"
+          (deactivate)="showLoginButtonsAgain()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
