@@ -13,6 +13,11 @@ export const routes: Routes = [
     ],
   },
 
+  {
+    path: 'main',
+    loadChildren: () => import('../core/Main/main.routes').then((module) => module.routes),
+  },
+
   // Public routes — noAuthGuard redirects logged-in users to dashboard
   { path: 'register', component: SignupComponent}
 ];

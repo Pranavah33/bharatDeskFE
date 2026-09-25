@@ -1,0 +1,36 @@
+<aside class="sidebar" aria-label="Main navigation">
+	<div class="profile">
+		<div class="profile-avatar" aria-hidden="true">A</div>
+		<div class="profile-copy">
+			<span class="profile-label">Signed in as</span>
+			<strong>Admin</strong>
+		</div>
+		<button class="profile-menu" type="button" aria-label="Open profile menu">
+			<span aria-hidden="true">•••</span>
+		</button>
+	</div>
+
+	<nav class="navigation" aria-label="Workspace">
+		<p class="navigation-label">Workspace</p>
+		@for (item of navigationItems; track item.label) {
+			<button
+				class="navigation-item"
+				[class.active]="activeTab() === item.label"
+				[attr.aria-current]="activeTab() === item.label ? 'page' : null"
+				type="button"
+				(click)="selectTab(item.label)"
+			>
+				<span [class]="'navigation-icon icon-' + item.icon" aria-hidden="true"></span>
+				<span>{{ item.label }}</span>
+			</button>
+		}
+	</nav>
+
+	<div class="sidebar-footer">
+		<div class="footer-rule"></div>
+		<button class="logout-button" type="button" (click)="logout()">
+			<span class="logout-icon" aria-hidden="true"></span>
+			<span>Logout</span>
+		</button>
+	</div>
+</aside>
