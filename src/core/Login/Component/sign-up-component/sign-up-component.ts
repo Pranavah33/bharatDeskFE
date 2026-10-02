@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up-component',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './sign-up-component.html',
   styleUrls: ['./sign-up-component.css']

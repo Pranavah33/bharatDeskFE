@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
 html,
 body,
 app-root {
 	display: block;
 	height: 100%;
 	margin: 0;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Mulish', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
 }
 
 *,
@@ -32,4 +37,23 @@ app-root {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bread-crumb {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    margin: 15px 0;
+    gap: 8px;
+
+    .seperator {
+        color: #999;
+        margin: 0 5px;
+    }
+
+    .current{
+        font-weight: 600;
+        color: #333;
+    }
 }

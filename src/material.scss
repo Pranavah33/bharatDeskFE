@@ -1,0 +1,238 @@
+/* ==========================================================================
+   ANGULAR MATERIAL M3 PRODUCTION THEME & OVERRIDES
+   File: src/material.scss
+   ========================================================================== */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$violet-palette,
+    use-system-variables: true
+  ),
+  typography: (
+    brand-family: 'Mulish, sans-serif',
+    plain-family: 'Mulish, sans-serif'
+  ),
+  density: (
+    scale: 0 // Change to -1 or -2 for ultra-dense data dashboards
+  )
+));
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$azure-palette,
+    tertiary: mat.$violet-palette,
+    use-system-variables: true
+  )
+));
+
+:root {
+  @include mat.all-component-themes($light-theme);
+  @include mat.system-level-colors($light-theme);
+  @include mat.system-level-typography($light-theme);
+
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-surface-hover: #f1f5f9;
+  --app-border: #e2e8f0;
+  --app-border-strong: #cbd5e1;
+  --app-text: #0f172a;
+  --app-text-muted: #64748b;
+  --mat-sys-primary: #ec6625;
+  --mat-sys-on-primary: #ffffff;
+
+  --mat-form-field-container-height: 48px !important;
+  --mat-form-field-container-vertical-padding: 12px !important;
+  --mat-form-field-outlined-container-shape: 8px !important;
+  --mat-form-field-outlined-outline-color: #d5dfdc !important;
+  --mat-form-field-outlined-hover-outline-color: #7b9890 !important;
+  --mat-form-field-outlined-focus-outline-color: #ec6625 !important;
+  --mat-form-field-outlined-label-text-color: #65736f !important;
+  --mat-form-field-outlined-focus-label-text-color: #ec6625 !important;
+  --mat-form-field-outlined-input-text-color: #3b312c !important;
+  --mat-select-enabled-trigger-text-color: #26332f !important;
+  --mat-select-enabled-arrow-color: #ec6625 !important;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-dropdown: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+}
+
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+  @include mat.system-level-colors($dark-theme);
+
+  --app-bg: #0b0f19;
+  --app-surface: #111827;
+  --app-surface-hover: #1f2937;
+  --app-border: #1f2937;
+  --app-border-strong: #374151;
+  --app-text: #f9fafb;
+  --app-text-muted: #9ca3af;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.35);
+  --shadow-dropdown: 0 10px 20px -3px rgb(0 0 0 / 0.5);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: 'Mulish', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================\n+   COMPONENT STYLING & POLISH\n+   ========================================================================== */
+
+.mat-mdc-card {
+  background-color: var(--app-surface) !important;
+  border: 1px solid var(--app-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &.mat-mdc-card-outlined {
+    box-shadow: none !important;
+  }
+}
+
+.mat-mdc-button-base {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+.mat-mdc-form-field {
+  &.mat-form-field-appearance-outline {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--mat-form-field-outlined-outline-color, var(--app-border)) !important;
+    }
+
+    &:hover:not(.mat-focused) {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--mat-form-field-outlined-hover-outline-color, var(--app-border-strong)) !important;
+      }
+    }
+
+    &.mat-focused,
+    &:focus-within {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #ec6625 !important;
+      }
+    }
+
+    .mat-mdc-form-field-flex {
+      border-radius: var(--radius-sm);
+      background-color: var(--app-surface);
+    }
+  }
+
+  &.no-subscript {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+}
+
+.mat-mdc-menu-panel {
+  background-color: var(--app-surface) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--app-border) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+}
+
+div.mat-mdc-select-panel {
+  padding-block: 4px;
+  background-color: var(--app-surface) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--app-border) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+
+  .mat-mdc-option {
+    border-radius: var(--radius-xs);
+    margin: 2px 4px;
+    min-height: 40px;
+    color: var(--app-text);
+
+    &:hover:not(.mdc-list-item--disabled) {
+      background-color: var(--app-surface-hover) !important;
+    }
+
+    &[aria-selected='true']:not(.mdc-list-item--disabled) {
+      background-color: #e5f2ee !important;
+      color: #442b1f !important;
+      font-weight: 600;
+
+      .mat-pseudo-checkbox::after {
+        border-color: #803814;
+      }
+    }
+  }
+}
+
+.mat-mdc-table {
+  background-color: var(--app-surface) !important;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  .mat-mdc-header-row {
+    background-color: var(--app-bg);
+
+    .mat-mdc-header-cell {
+      color: var(--app-text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--app-border);
+    }
+  }
+
+  .mat-mdc-row {
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--app-surface-hover);
+    }
+
+    .mat-mdc-cell {
+      border-bottom: 1px solid var(--app-border);
+      color: var(--app-text);
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: var(--app-surface) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--app-border) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+  padding: 1.5rem !important;
+}
+
+.mat-mdc-tooltip .mdc-tooltip__surface {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-xs) !important;
+  padding: 4px 8px !important;
+}

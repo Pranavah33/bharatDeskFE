@@ -1,0 +1,293 @@
+:host {
+  display: block;
+  min-width: 0;
+  color: #26332f;
+  font-family: 'Mulish', sans-serif;
+}
+
+.page-shell {
+  width: 100%;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  color: #76817e;
+  font-size: 12px;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs [aria-current='page'] {
+  color: #332c28;
+}
+
+.list-page {
+  min-width: 0;
+  padding: 20px 22px 12px;
+  border: 1px solid #e5eae8;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: min(360px, 100%);
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #dce3e0;
+  border-radius: 5px;
+  color: #77827f;
+  background: #fff;
+}
+
+.search-box:focus-within {
+  border-color: #71998e;
+  box-shadow: 0 0 0 3px rgb(23 107 91 / 10%);
+}
+
+.search-box mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: #424242;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: #8b9592;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid #d6dfdc;
+  border-radius: 5px;
+  background: #fff;
+  color: #424242;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toolbar-actions .all-jobs-button {
+  min-width: 128px;
+}
+
+.toolbar-actions .create-button {
+  border-color: #ec6625;
+  background: #ec6625;
+  color: #fff;
+}
+
+.create-button mat-icon {
+  width: 17px;
+  height: 17px;
+  font-size: 17px;
+}
+
+.toolbar-actions button:hover {
+  filter: brightness(0.97);
+}
+
+.table-section {
+  min-width: 0;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-top: 1px solid #e8edeb;
+}
+
+table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead {
+  background: #fafbfb;
+}
+
+th {
+  height: 42px;
+  padding: 0 12px;
+  color: #424242;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+td {
+  height: 43px;
+  padding: 0 12px;
+  border-top: 1px solid #edf0ef;
+  color: #424242;
+  font-size: 12px;
+}
+
+tbody tr:hover {
+  background: #f8faf9;
+}
+
+.job-number {
+  color: #36433f;
+  font-weight: 600;
+}
+
+.status {
+  color: #ff2c2c;
+}
+
+.row-action {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  color: #a86a22;
+  background: transparent;
+  cursor: pointer;
+}
+
+.row-action:hover,
+.row-action:focus-visible {
+  outline: none;
+  background: #fff4e5;
+}
+
+.row-action mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+.empty-state {
+  height: 100px;
+  color: #424242;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  border-top: 1px solid #e8edeb;
+}
+
+.page-summary {
+  color: #424242;
+  font-size: 12px;
+}
+
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-controls button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 4px;
+  color: #66716e;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.page-controls button.current {
+  color: #fff;
+  background: #ec6625;
+}
+
+.page-controls button:disabled {
+  color: #b5bfbb;
+  cursor: default;
+}
+
+.page-controls mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+@media (max-width: 700px) {
+  .list-page {
+    padding: 16px 12px 8px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .toolbar-actions {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 420px) {
+  .toolbar-actions button {
+    flex: 1;
+    padding: 0 9px;
+  }
+
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding-block: 10px;
+  }
+}

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
+  standalone: true,
   imports: [RouterLink],
   templateUrl: './login-form-component.html',
   styleUrl: './login-form-component.css',

@@ -1,7 +1,35 @@
-<main class="dashboard" aria-labelledby="dashboard-title">
-  <header class="dashboard-header">
-    <p class="eyebrow">Overview</p>
-    <h1 id="dashboard-title">Dashboard</h1>
-    <p class="dashboard-intro">Welcome back. Here is what is happening today.</p>
-  </header>
-</main>
+<div class="bread-crumb">
+  <span>Home</span>
+</div>
+
+<div class="dashboard-header">
+  <h4>Application</h4>
+  <mat-form-field class="data-filter" appearance="outline" subscriptSizing="dynamic">
+    <mat-label>Period</mat-label>
+    <mat-select value="last-30-days">
+      <mat-option value="last-7-days">Last 7 Days</mat-option>
+      <mat-option value="last-30-days">Last 30 Days</mat-option>
+      <mat-option value="last-90-days">Last 90 Days</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="card container grey">
+  <div class="stats-grid">
+    <a class="stat-card" routerLink="/main/application-list">
+      <div class="icon blue"><mat-icon>description</mat-icon></div>
+      <p class="stat-label">Total Open Applications</p>
+      <h2 class="stat-value">1,234</h2>
+    </a>
+    <div class="stat-card">
+      <div class="icon green"><mat-icon>trending-up</mat-icon></div>
+      <p class="stat-label">In Progress Applications</p>
+      <h2 class="stat-value">567</h2>
+    </div>
+    <div class="stat-card">
+      <div class="icon red"><mat-icon>close</mat-icon></div>
+      <p class="stat-label">Closed Applications</p>
+      <h2 class="stat-value">891</h2>
+    </div>
+  </div>
+</div>

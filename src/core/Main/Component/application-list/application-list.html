@@ -1,0 +1,92 @@
+<div class="page-shell">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a routerLink="/main">Home</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Open Application</span>
+  </nav>
+
+  <main class="list-page">
+    <div class="toolbar">
+      <label class="search-box">
+        <mat-icon aria-hidden="true">search</mat-icon>
+        <input
+          type="search"
+          aria-label="Search by claim number or job type"
+          placeholder="Search Applicartion"
+          (input)="onSearch($event)"
+        />
+      </label>
+
+      <div class="toolbar-actions">
+        <button class="create-button" type="button">
+          <mat-icon aria-hidden="true">add</mat-icon>
+          <span>Create New Application</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="table-section" aria-label="Job requests">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Application Number</th>
+              <th scope="col">Applicant Name</th>
+              <th scope="col">Business Name</th>
+              <th scope="col">Product</th>
+              <th scope="col">Stage</th>
+              <th scope="col">Amount Paid</th>
+              <th scope="col">Payment Status</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (app of visibleJobs(); track app.application_number) {
+              <tr>
+                <td class="job-number">{{ app.application_number }}</td>
+                <td>{{ app.applicant_name }}</td>
+                <td>{{ app.business_name }}</td>
+                <td>{{ app.product }}</td>
+                <td><span class="status">{{ app.stage }}</span></td>
+                <td>{{ app.amount_paid }}</td>
+                <td>{{ app.payment_status }}</td>
+                <td>{{ app.created_date }}</td>
+                <td>
+                  <button class="row-action" type="button" [attr.aria-label]="'Open job ' + app.application_number">
+                    <mat-icon aria-hidden="true">open_in_new</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td class="empty-state" colspan="8">No Application requests match your search.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="pagination" aria-label="Table pagination">
+        <span class="page-summary">{{ filteredJobs().length }} Application Requests</span>
+        <div class="page-controls">
+          <button type="button" aria-label="Previous page" [disabled]="currentPage() === 1" (click)="setPage(currentPage() - 1)">
+            <mat-icon aria-hidden="true">chevron_left</mat-icon>
+          </button>
+          @for (page of pages(); track page) {
+            <button
+              type="button"
+              [class.current]="currentPage() === page"
+              [attr.aria-current]="currentPage() === page ? 'page' : null"
+              [attr.aria-label]="'Page ' + page"
+              (click)="setPage(page)"
+            >{{ page }}</button>
+          }
+          <button type="button" aria-label="Next page" [disabled]="currentPage() === pageCount()" (click)="setPage(currentPage() + 1)">
+            <mat-icon aria-hidden="true">chevron_right</mat-icon>
+          </button>
+        </div>
+      </footer>
+    </section>
+  </main>
+</div>
